@@ -5,13 +5,13 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class user {
+public class User {
     private Integer id;
     private String name;
 
     private Date birth;
 
-    public user(Integer id, String name) {
+    public User(Integer id, String name) {
         this.id = id;
         this.name = name;
     }

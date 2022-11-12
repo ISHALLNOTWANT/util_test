@@ -1,6 +1,6 @@
 package com.ishallnotwant.list_map_set;
 
-import com.ishallnotwant.dao.user;
+import com.ishallnotwant.dao.User;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -12,37 +12,37 @@ import java.util.stream.Collectors;
 
 @SpringBootTest
 public class listTest {
-    user user1=new user(1,"xx");
-    user user2=new user(2,"yy");
-    user user3=new user(3,"zz");
-    user user4=new user(4,"mm");
+    User user1=new User(1,"xx");
+    User user2=new User(2,"yy");
+    User user3=new User(3,"zz");
+    User user4=new User(4,"mm");
 
-    user user4_2=new user(4,"aa");
+    User user4_2=new User(4,"aa");
 
-    user user5=new user(5,"vv");
-    List<user> users=new ArrayList<>();
+    User user5=new User(5,"vv");
+    List<User> Users =new ArrayList<>();
 
     @Test
     public void test001(){
-        users.add(user4_2);
-        users.add(user1);
-        users.add(user2);
-        users.add(user3);
-        users.add(user4);
-        users.add(user5);
+        Users.add(user4_2);
+        Users.add(user1);
+        Users.add(user2);
+        Users.add(user3);
+        Users.add(user4);
+        Users.add(user5);
 
         //sorted是流的方法，不会改变原来的数据，排序完会返回一个新的
-        List<user> users1=users.stream().sorted(Comparator.comparing(user::getId).reversed()).collect(Collectors.toList());
+        List<User> users1= Users.stream().sorted(Comparator.comparing(User::getId).reversed()).collect(Collectors.toList());
         System.out.println(users1);
-        System.out.println(users);
+        System.out.println(Users);
 
         //sort会直接在原集合上直接进行排序
-        users.sort(Comparator.comparing(user::getId).reversed());
-        System.out.println(users);
+        Users.sort(Comparator.comparing(User::getId).reversed());
+        System.out.println(Users);
 
         Collections.reverse(users1);
         //先按照id排序再按照名字排序
-        users1.sort(Comparator.comparing(user::getId).thenComparing(user::getName));
+        users1.sort(Comparator.comparing(User::getId).thenComparing(User::getName));
         System.out.println(users1);
 
     }

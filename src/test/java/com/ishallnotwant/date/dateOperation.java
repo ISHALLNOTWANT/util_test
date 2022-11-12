@@ -60,10 +60,19 @@ public class dateOperation {
 
     }
 
+    public void test0033(){
+
+    }
+
     @Test
     public void test0012(){
         long x=1662051600000l;
-        Date v=new Date(x);
+
+        long y=1667232000000l; //2022-11-1
+        long z=1667318399000l;//2022-11-1 23:59:59
+
+        long cc=1664553599000l;
+        Date v=new Date(cc);
         System.out.println(v);
     }
 

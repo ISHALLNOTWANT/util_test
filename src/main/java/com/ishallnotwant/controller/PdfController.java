@@ -1,7 +1,7 @@
 package com.ishallnotwant.controller;
 
 
-import com.ishallnotwant.dao.task;
+import com.ishallnotwant.dao.Task;
 import com.ishallnotwant.utils.pdf.PdfUtil;
 
 
@@ -26,14 +26,14 @@ public class PdfController {
      */
     @GetMapping("/001")
     public void export001(HttpServletRequest request,HttpServletResponse httpServletResponse) throws Exception {
-        List<task> beforeWork=new ArrayList<>();
-        List<task> betweenWork=new ArrayList<>();
-        List<task> afterWork=new ArrayList<>();
+        List<Task> beforeWork=new ArrayList<>();
+        List<Task> betweenWork=new ArrayList<>();
+        List<Task> afterWork=new ArrayList<>();
 
         for(int i=0;i<9;i++){
-            task taskBefore=new task(i+1,"营业前履职"+(i+1),"√","小明");
-            task taskBetween=new task(i+10,"营业中履职"+(i+10),"√","小明");
-            task taskAfter=new task(i+19,"营业后履职"+(i+19),"√","小明");
+            Task taskBefore=new Task(i+1,"营业前履职"+(i+1),"√","小明");
+            Task taskBetween=new Task(i+10,"营业中履职"+(i+10),"√","小明");
+            Task taskAfter=new Task(i+19,"营业后履职"+(i+19),"√","小明");
             beforeWork.add(taskBefore);
             betweenWork.add(taskBetween);
             afterWork.add(taskAfter);

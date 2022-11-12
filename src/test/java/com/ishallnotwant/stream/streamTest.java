@@ -1,6 +1,6 @@
 package com.ishallnotwant.stream;
 
-import com.ishallnotwant.dao.user;
+import com.ishallnotwant.dao.User;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,15 +14,15 @@ import static java.util.stream.Collectors.toList;
 @SpringBootTest
 public class streamTest {
 
-    user user1=new user(1,"xx");
-    user user2=new user(2,"yy");
-    user user3=new user(3,"zz");
-    user user4=new user(4,"mm");
-    user user5=new user(5,"vv");
-    user user6=new user(6,"xx");
-    user user7=new user(7,"xx");
-    user user8=new user(8,"zz");
-    List<user> users=new ArrayList<>();
+    User user1=new User(1,"xx");
+    User user2=new User(2,"yy");
+    User user3=new User(3,"zz");
+    User user4=new User(4,"mm");
+    User user5=new User(5,"vv");
+    User user6=new User(6,"xx");
+    User user7=new User(7,"xx");
+    User user8=new User(8,"zz");
+    List<User> Users =new ArrayList<>();
 
 
     /**
@@ -31,23 +31,23 @@ public class streamTest {
     @Test
     public void test001(){
 
-        users.add(user1);
-        users.add(user2);
-        users.add(user3);
-        users.add(user4);
-        users.add(user5);
+        Users.add(user1);
+        Users.add(user2);
+        Users.add(user3);
+        Users.add(user4);
+        Users.add(user5);
 
 
-        List<Integer> listId=users.stream().map(user ::getId).collect(toList());
+        List<Integer> listId= Users.stream().map(User::getId).collect(toList());
 
         System.out.println(listId);     //[1, 2, 3, 4, 5]
 
-        List<String> listName=users.stream().map(user ::getName).collect(toList());
+        List<String> listName= Users.stream().map(User::getName).collect(toList());
         String names=listName.toString();
         System.out.println(names.substring(1,names.length()-1));
         System.out.println(listName);   //[xx, yy, zz, mm, vv]
 
-        Map<Integer,String> userMap=users.stream().collect(Collectors.toMap(user::getId,user::getName));
+        Map<Integer,String> userMap= Users.stream().collect(Collectors.toMap(User::getId, User::getName));
         System.out.println(userMap.get(3));
         System.out.println(userMap);
     }
@@ -57,16 +57,16 @@ public class streamTest {
      */
     @Test
     public void test002(){
-        users.add(user1);
-        users.add(user2);
-        users.add(user3);
-        users.add(user4);
-        users.add(user5);
-        users.add(user6);
-        users.add(user7);
-        users.add(user8);
+        Users.add(user1);
+        Users.add(user2);
+        Users.add(user3);
+        Users.add(user4);
+        Users.add(user5);
+        Users.add(user6);
+        Users.add(user7);
+        Users.add(user8);
 
-        Map<String,List<user>> nameSameMap=users.stream().collect(Collectors.groupingBy(user::getName));
+        Map<String,List<User>> nameSameMap= Users.stream().collect(Collectors.groupingBy(User::getName));
         System.out.println(nameSameMap);
 
     }
@@ -89,18 +89,18 @@ public class streamTest {
 
     @Test
     public void test004(){
-        users.add(user1);
-        users.add(user2);
-        users.add(user7);
-        users.add(user6);
-        users.add(user5);
-        users.add(user4);
-        users.add(user3);
+        Users.add(user1);
+        Users.add(user2);
+        Users.add(user7);
+        Users.add(user6);
+        Users.add(user5);
+        Users.add(user4);
+        Users.add(user3);
 
-        System.out.println(users);
+        System.out.println(Users);
         //排序
-        users.sort(Comparator.comparing(user::getId));
-        System.out.println(users);
+        Users.sort(Comparator.comparing(User::getId));
+        System.out.println(Users);
     }
 
     @Test

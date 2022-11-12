@@ -3,7 +3,7 @@ package com.ishallnotwant.dao;
 import lombok.Data;
 
 @Data
-public class task {
+public class Task {
 
     private int taskId;
 
@@ -14,7 +14,7 @@ public class task {
 
     private String executeName;
 
-    public task(int taskId,String taskName,String taskResult,String executeName){
+    public Task(int taskId, String taskName, String taskResult, String executeName){
         this.taskId=taskId;
         this.taskName=taskName;
         this.taskResult=taskResult;

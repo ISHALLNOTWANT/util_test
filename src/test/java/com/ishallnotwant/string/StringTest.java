@@ -17,6 +17,8 @@ public class StringTest {
     @Test
     public void test001(){
         String a="[[123,54],[4355],[178,123]]";
+        String ss="00110032";
+        System.out.println(ss.substring(0,4));
 
     }
 
